@@ -8,6 +8,7 @@ class Questions extends Model
 {
   public function getDateAnswerAttribute($value)
   {
+      if($value=='')return'';
       $dt =  Carbon::createFromFormat('Y-m-d H:i:s', $value);
       return $dt->format('d.m.Y');
   }

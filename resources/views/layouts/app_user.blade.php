@@ -35,40 +35,15 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    @auth
-                    @if(Auth::user()->role('admin'))
-                    <ul class="navbar-nav mr-auto">
-                        <li><a class="nav-link" href="{{ route('rubric-index') }}">{{ __('rubrics.all') }}</a>
-                        <li><a class="nav-link" href="{{ route('questions-na') }}">{{ __('questions.no_answered') }}</a>
-                        <li><a class="nav-link" href="{{ route('users') }}">{{ __('users.all') }}</a>
-                    </ul>
-                    @endif
-                    @endauth
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
                             <li><a class="nav-link" href="{{ route('login') }}">{{ __('messages.Login') }}</a></li>
-                            <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
+                            <li><a class="nav-link" href="{{ route('register') }}">{{ __('messages.Register') }}</a></li>
                         @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
+                            <li><a class="nav-link" href="{{ route('register') }}">{{ __('messages.AddQuestion') }}</a></li>
                         @endguest
                     </ul>
                 </div>

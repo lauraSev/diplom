@@ -17,6 +17,8 @@ class QuestionsTableSeed extends Seeder
             'answer'=>($i%3==0?$faker->text:''),
             'status'=>$faker->randomElement(['P','W','H']),
             'date_answer'=>$faker->dateTime,
+            'created_at'=>$faker->date('Y-m-d'),
+            'updated_at'=>($i%3==0?$faker->date('Y-m-d'):'1975-01-01'),
             'created_by'=>$faker->numberBetween(1,10),
             'checked_by'=>$faker->numberBetween(1,10),
             'topic_id'=>$faker->numberBetween(1,10),

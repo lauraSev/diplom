@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
+use Carbon\Carbon;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -26,4 +26,16 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+    public function getCreatedAtAttribute($value)
+    {
+        $dt =  Carbon::createFromFormat('Y-m-d H:i:s', $value);
+        return $dt->format('d.m.Y H:i:s');
+    }
+
+    public function role($role) {
+        $r = mb_convert_case(substr($role,0,1),MB_CASE_UPPER,'UTF-8');
+        return $this->group==$r;
+    }
 }
