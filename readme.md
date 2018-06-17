@@ -1,9 +1,19 @@
 ## FAQ
 ### Установка
 В консоли нужно выполнить команды
-- composer update
-- php artisan migrate:fresh
-- php artisan db:seed
+composer global require "laravel/installer"
+composer create-project --prefer-dist laravel/laravel .
+mkdir git
+cd git
+git clone https://github.com/lauraSev/diplom .
+cp -r ./* ../
+cp -r ./.git ../
+cd ..
+rm -rf ./git
+composer update
+указать доступы СУБД в .env 
+php artisan  migrate:fresh 
+php artisan   db:seed    
 
 ### Работа приложения
 По умолчанию в системе создается только один реальный пользователь с правами 

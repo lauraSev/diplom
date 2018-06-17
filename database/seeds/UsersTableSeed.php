@@ -13,9 +13,10 @@ class UsersTableSeed extends Seeder
     public function run(Faker $faker)
     {
         DB::table('users')->insert([
-            'email'=>'admin@admin.ru',
+            'email'=>'admin',
             'name'=>'admin',
-            'password'=>\Hash::make('admin')
+            'password'=>\Hash::make('admin'),
+            'group'=>'A'
         ]);
         for ($i = 0; $i < 10; $i++) {
             DB::table('users')->insert([
