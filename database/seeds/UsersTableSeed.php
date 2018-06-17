@@ -13,7 +13,7 @@ class UsersTableSeed extends Seeder
     public function run(Faker $faker)
     {
         DB::table('users')->insert([
-            'email'=>'admin',
+            'email'=>'admin@admin.ru',
             'name'=>'admin',
             'password'=>\Hash::make('admin'),
             'group'=>'A'
